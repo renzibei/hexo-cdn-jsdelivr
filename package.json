@@ -1,7 +1,7 @@
 {
   "name": "hexo-cdn-jsdelivr",
   "version": "0.0.1",
-  "description": "A hexo plugin to help you automatically use the cdn of jsdelivr for Github to speed up the loading of static resources like images.",
+  "description": "A hexo plugin to help you automatically use jsdelivr CDN for Github to speed up the loading of static resources like images.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,8 @@
   "dependencies": {
     "url-join": "^4.0.1",
     "nunjucks": "^3.2.1",
-    "moment": "^2.18.0"
+    "moment": "^2.18.0",
+    "hexo-fs": "^3.1.0"
   },
   "author": "renzibei",
   "license": "MIT"
