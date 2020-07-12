@@ -14,7 +14,7 @@ You can configure this plugin in `_config.yml`.
 
 ```yaml
 jsdelivr_cdn:
-	# if use_cdn is false, this plugin will not work
+  # if use_cdn is false, this plugin will not work
   use_cdn: true 
   # cdn_url_prefix should be like: https://cdn.jsdelivr.net/gh/<username for github>/<assets repo name>/
   cdn_url_prefix: <the url of jsdelivr cdn for your github repository>
@@ -22,8 +22,8 @@ jsdelivr_cdn:
   git_repo_url: <git repository url>
   # The path of a asset directory in asset_dirs should be the relative path to your hexo project directory, e.g. assets or source/assets or themes/<theme name>/assets
   asset_dirs:
-  	- [assets directory]
-  	- [another assets directory]
+    - [assets directory]
+    - [another assets directory]
 ```
 
 ## Usage
