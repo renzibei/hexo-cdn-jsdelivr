@@ -24,7 +24,6 @@ jsdelivr_cdn:
   asset_dirs:
   	- [assets directory]
   	- [another assets directory]
-    - themes/hexo-theme-icalm/source/assets
 ```
 
 ## Usage
