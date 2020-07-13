@@ -27,12 +27,18 @@ You can configure this plugin in `_config.yml`.
 
 ```yaml
 jsdelivr_cdn:
-  # if use_cdn is false, this plugin will not work
+  # If use_cdn is false, this plugin will not work
   use_cdn: true 
+
+  # If deploy_when_generating is true, the assets repository will be pushed to github every time you generate the hexo project using 'hexo g' command. If this flag is set false, the repository will be pushed when deploying. You can manually push the assets repository to github when generating by using 'hexo g cdn' command.
+  deploy_when_generating: true
+
   # cdn_url_prefix is the jsdelivr cdn url of your github repository(the assets repository for static assets rather than the hexo project deployment repository), it should be like: https://cdn.jsdelivr.net/gh/<username for github>/<assets repo name>/
   cdn_url_prefix: <the url of jsdelivr cdn for your github repository>
+
   # git_repo_url is the url of your new assets repository on github, it should be like git@github.com:<username>/<repo>.git
   git_repo_url: <git repository url>
+
   # The path of an asset directory in asset_dirs should be the relative path to your hexo project directory, e.g. assets or source/assets or themes/<theme name>/assets. If you only want to use the cdn for the images in your posts, you can leave asset_dirs as empty
   asset_dirs:
     - [assets directory]

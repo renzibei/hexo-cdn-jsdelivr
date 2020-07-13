@@ -28,10 +28,16 @@ $ npm install hexo-cdn-jsdelivr --save
 jsdelivr_cdn:
   # 如果 use_cdn 被设置为false， 则该插件不会工作
   use_cdn: true 
+  
+  # 如果 deploy_when_generating 被设置为true, 那么静态资源目录将会在每次使用'hexo g'命令生成hexo项目的时候被推送到github。如果被设置为false，则只会在deploy时被推送。你也可以在该标志设置为false时使用'hexo g cdn'命令手动推送到github。
+  deploy_when_generating: true
+  
   # cdn_url_prefix是jsdelivr上你的github仓库(这是专门用来作CDN加速的静态资源仓库而非原hexo项目的部署仓库)的对应网址，应该形如 https://cdn.jsdelivr.net/gh/<username for github>/<assets repo name>/
   cdn_url_prefix: <你在github上的静态资源仓库对应的jsdelivr网址>
+  
   # git_repo_url是你github上的静态资源仓库的url，应该形如git@github.com:<username>/<repo>.git
   git_repo_url: <github上的静态资源仓库的url>
+  
   # asset_dirs是需要上传至github静态资源仓库的目录列表，其中的每一个资源目录应该是相对于你的hexo项目目录的路径， 例如 assets 或者 source/assets 或者 themes/<theme name>/assets 。如果你只是想用CDN加速你的post中的图片，则可以不设置asset_dirs
   asset_dirs:
     - [存放静态资源的目录]
