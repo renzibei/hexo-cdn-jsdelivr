@@ -2,7 +2,17 @@
 
 简体中文 | [English](./readme.md)
 
-一个自动地帮助你将图片等静态资源使用jsDelivr 的Github CDN加速的hexo插件。
+## 介绍
+
+一个自动地帮助你将图片等静态资源使用jsDelivr的Github CDN加速的hexo插件。
+
+如果你想要使用CDN来加速你的Hexo网站中的静态资源，那么 [jsDelivr](https://www.jsdelivr.com/)提供了一个开源的CDN。
+
+你可能在以下场景中想要使用该插件和jsDelivr CDN:
+
+- 加速Hexo网站中静态资源的加载
+- 避免网站在不同地区访问体验的不一致。例如，Github Pages在中国的访问速度较慢且体验因地区差异较大。
+- 节省浏览器的带宽
 
 ## 安装
 
@@ -32,7 +42,7 @@ jsdelivr_cdn:
 
 如果你想要使用jsdelivr CDN加速你的posts中的图片，那么你需要设置`_config.yml`中的`post_asset_folder`选项为`true`。并且你需要将上面的配置选项加入`_config.yml`中。
 
-你需要在Github上新建一个仓库专门来存放静态资源。新建完仓库后，将仓库的链接填写在配置选项中，该插件就会帮会你将静态资源自动地推送到Github上的仓库中。然后jsDelivr的CDN中可以访问你的静态资源了。
+你需要在Github上新建一个仓库专门来存放静态资源。新建完仓库后，将仓库的链接填写在配置选项中，该插件就会帮助你将静态资源自动地推送到Github上的仓库中。然后jsDelivr的CDN中可以访问你的静态资源了。
 
 ### 文章内图片
 
