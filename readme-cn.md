@@ -97,6 +97,15 @@ jsdelivr_cdn:
 
 除了`_post`目录下的文章资源目录与配置选项中`asset_dirs`中的目录，该插件还会扫描`public`目录下的文件，并将所有`.js`与`.css`文件推送至Github仓库。通过该方式，使用`stylus`等css模板产生的css文件也能够被CDN获取。
 
+## TODO List
+
+- [ ] 添加对通过Github token推送的支持
+
+- [ ] Add support for Github token
+- [ ] 
+
+- [ ] 考虑支持markdown风格的文件插入链接方法
+
 ## 重置
 
 ```
