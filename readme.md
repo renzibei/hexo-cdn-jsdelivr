@@ -1,6 +1,19 @@
 # hexo-cdn-jsdelivr
 
-A hexo plugin to help you automatically use jsdelivr CDN for Github to speed up the loading of static resources like images.
+English | [简体中文](./readme-cn.md)
+
+## Introduction
+
+A hexo plugin to help you automatically use jsDelivr CDN for Github to speed up the loading of static resources like images.
+
+If you want to use CDN for the static resources of your hexo website, [jsDelivr](https://www.jsdelivr.com/) provides an open-source CDN.
+
+You may want to use this plugin and jsDelivr CDN when:
+
+- Speed up the loading of static resources of your Hexo website
+- Avoid inconsistent website access experience in different regions. For example, Github Pages is very slow to visit in China
+
+- Save the bandwidth of your server
 
 ## Installation
 
@@ -16,11 +29,11 @@ You can configure this plugin in `_config.yml`.
 jsdelivr_cdn:
   # if use_cdn is false, this plugin will not work
   use_cdn: true 
-  # cdn_url_prefix should be like: https://cdn.jsdelivr.net/gh/<username for github>/<assets repo name>/
+  # cdn_url_prefix is the jsdelivr cdn url of your github repository(the assets repository for static assets rather than the hexo project deployment repository), it should be like: https://cdn.jsdelivr.net/gh/<username for github>/<assets repo name>/
   cdn_url_prefix: <the url of jsdelivr cdn for your github repository>
-  # git_repo_url should be like git@github.com:<username>/<repo>.git , this is the new repository for your assets
+  # git_repo_url is the url of your new assets repository on github, it should be like git@github.com:<username>/<repo>.git
   git_repo_url: <git repository url>
-  # The path of a asset directory in asset_dirs should be the relative path to your hexo project directory, e.g. assets or source/assets or themes/<theme name>/assets
+  # The path of an asset directory in asset_dirs should be the relative path to your hexo project directory, e.g. assets or source/assets or themes/<theme name>/assets. If you only want to use the cdn for the images in your posts, you can leave asset_dirs as empty
   asset_dirs:
     - [assets directory]
     - [another assets directory]
@@ -30,19 +43,19 @@ jsdelivr_cdn:
 
 If you want to use this plugin, you should set the`post_asset_folder` to `true` in `_config.yml` of your project. And you have to add the Options mentioned above to your `_config.yml`
 
-You have to create a new repository in Github to store static assets. Set the repository link in options and this plugin will help you push static assets to the Github repository. Then the cdn link of your assets will be available in jsdelivr.
+You have to create a new repository in Github to store static assets. Set the repository link in options and this plugin will help you push static assets to the Github repository. Then the CDN link of your assets will be available in jsDelivr.
 
 ### Images in Posts
 
 As it is recommanded in [Hexo documents](https://hexo.io/docs/asset-folders), you can use `{% asset_img slug [title] %}` tag in your markdown post file to insert pictures in the posts.
 
-Originally, setting `post_asset_folder` as true, you place the pictures in each folder for the posts. Now with `hexo-cdn-jsdelivr`, you don't have to move your pictures assets. This plugin will automatically push all your pictures of posts to the the repository on Github and using the jsdelivr cdn link in the generated html pages.
+Originally, setting `post_asset_folder` as true, you place the pictures in each folder for the posts. Now with `hexo-cdn-jsdelivr`, you don't have to move your pictures assets. This plugin will automatically push all your pictures of posts to the repository on Github and using the jsdelivr CDN link in the generated html pages.
 
 ### Other Static Assets
 
-Except the images in posts, you can use this plugin to upload other static assets to CDN too! For example, you may have some `.js` or `.css` files in your site that you want to upload to the CDN.
+Except for the images in posts, you can use this plugin to upload other static assets to CDN too! For example, you may have some `.js` or `.css` files on your site that you want to upload to the CDN.
 
-There are serval templates(which is `Helper` in hexo) you can use in to turn assets to CDN link.
+There are several templates(which is `Helper` in hexo) you can use in to turn assets to CDN link.
 
 ```ejs
 <!-- You can use cdn_css(path) to replace css(path) in hexo -->
@@ -56,24 +69,28 @@ There are serval templates(which is `Helper` in hexo) you can use in to turn ass
 
 <!-- Examples -->
 <%- cdn_css('style.css') %>
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/<username>/<repo>/css/style.css"> -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/<username>/<repo>@latest/css/style.css"> -->
 
 <%- cdn_js('test.js') %>
-<!-- <script src="https://cdn.jsdelivr.net/gh/<username>/<repo>/js/test.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/<username>/<repo>@latest/js/test.js"></script> -->
 
 <img src="<%- cdn_asset('assets/test.png') %>"/>
-<!-- <img src="https://cdn.jsdelivr.net/gh/<username>/<repo>/assets/test.png"/>  -->
+<!-- <img src="https://cdn.jsdelivr.net/gh/<username>/<repo>@latest/assets/test.png"/>  -->
 ```
 
 
 
 ## How it works
 
-`hexo-cdn-jsdelivr` works by copying the static assets files to `.deploy_static_assets` and then it will push this directory to your assets git repo on Github. [jsDelivr](https://www.jsdelivr.com) provides an open source cdn for github. So you can load all the asset files uploaded to github from the cdn.
+Thanks to  [jsDelivr](https://www.jsdelivr.com). jsDelivr  provides an open-source CDN for Github. So you can load all the asset files uploaded to Github from the CDN. You can know the jsDelivr CDN further by visiting [their website](https://www.jsdelivr.com/features).
 
-This plugin will replace all the image href which come from `asset_img` tag in posts with the cdn link of each image. 
+In short, if the url of a file in your Github repo is like this: `https://github.com/<username>/<repo>/blob/master/<filename>`，you can also access the jsDelivr CDN url of it by `https://cdn.jsdelivr.net/gh/<username>/<repo>/<filename>`
 
-Except for the assets in the `_post` directory and the `asset_dirs` set in the Options, the plugin will scan the `public` directory to find all the `.js` and `.css` files and upload them to github repo, in which way the css files generate by `stylus` can also be accessed by the cdn.
+`hexo-cdn-jsdelivr` works by copying the static assets files to `.deploy_static_assets` and then it will push this directory to your assets git repo on Github. Then you can load your assets through jsDelivr CDN.
+
+This plugin will replace all the image links which come from `asset_img` tags in posts with the CDN link of each image. 
+
+Except for the assets in the `_post` directory and the `asset_dirs` set in the Options, the plugin will scan the `public` directory to find all the `.js` and `.css` files and upload them to github repo, in which way the css files generated by `stylus` can also be accessed by the CDN.
 
 ## Reset
 
