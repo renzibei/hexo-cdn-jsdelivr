@@ -9,7 +9,7 @@ var cdnConfig = require('./lib/process').getCdnConfig(hexo);
 
 if (cdnConfig && 'use_cdn' in cdnConfig && cdnConfig.use_cdn) {
   hexo.extend.filter.register('before_post_render', require('./lib/process').processPost);
-  hexo.extend.generator.register('jsdelivr_cdn_generator',  require('./lib/generator').assetsGenerator);
+  hexo.extend.filter.register('before_exit',  require('./lib/generator').assetsGenerator);
   hexo.extend.filter.register('before_exit', require('./lib/generator').assetsDeployer);
 }
 
