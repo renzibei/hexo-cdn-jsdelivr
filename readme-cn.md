@@ -20,6 +20,8 @@
 $ npm install hexo-cdn-jsdelivr --save
 ```
 
+如果你使用node 8.x版本，那么可能会遇到一些问题。我们推荐你至少使用node 10.x版本。
+
 ## 配置选项
 
 你可以在项目的`_config.yml`文件中配置该插件。

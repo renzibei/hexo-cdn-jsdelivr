@@ -21,6 +21,8 @@ You may want to use this plugin and jsDelivr CDN when:
 $ npm install hexo-cdn-jsdelivr --save
 ```
 
+You may come across some problems when using node 8.x version. We recommend that you use node >= 10.x version.
+
 ## Options
 
 You can configure this plugin in `_config.yml`.
