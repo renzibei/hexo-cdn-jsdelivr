@@ -40,6 +40,9 @@ jsdelivr_cdn:
 
   # git_repo_url is the url of your new assets repository on github, it should be like git@github.com:<username>/<repo>.git
   git_repo_url: <git repository url>
+  
+  # you can use github token to push your assets repository. If you don't want to use a token, you can use a empty string '' or comment out this line. We do not recommand that you directly write your token in the _config.yml. We suggest that you read the token from the environment variable by setting token with a prefix '$'. e.g. '$GITHUB_TOKEN'. When you want to use token, you must use http(s) link of your repo. More information about github token can be found in https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line.
+  token: <your github auth token, optional>
 
   # The path of an asset directory in asset_dirs should be the relative path to your hexo project directory, e.g. assets or source/assets or themes/<theme name>/assets. If you only want to use the cdn for the images in your posts, you can leave asset_dirs as empty
   asset_dirs:
@@ -108,6 +111,10 @@ Except for the assets in the `_post` directory and the `asset_dirs` set in the O
 ```
 $ rm -rf .deploy_static_assets
 ```
+
+## Reference
+
+Some of the codes refer to [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
 
 ## License
 

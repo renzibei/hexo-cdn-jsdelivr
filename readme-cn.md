@@ -40,7 +40,10 @@ jsdelivr_cdn:
   # git_repo_url是你github上的静态资源仓库的url，应该形如git@github.com:<username>/<repo>.git
   git_repo_url: <github上的静态资源仓库的url>
   
-  # asset_dirs是需要上传至github静态资源仓库的目录列表，其中的每一个资源目录应该是相对于你的hexo项目目录的路径， 例如 assets 或者 source/assets 或者 themes/<theme name>/assets 。如果你只是想用CDN加速你的post中的图片，则可以不设置asset_dirs
+  # 你可以使用Github token来验证推送你的资源仓库。如果不想使用token验证，那么只要将token值设置为空或者注释掉这一行即可。我们不推荐将token直接写在_config.yml中。我们推荐使用环境变量储存token，只要将token值的第一个字符设置为'$',该插件就会从该环境变量中读取。例如你可以使用'$GITHUB_TOKEN'环境变量来储存token。当使用token验证时，必须通过http(s)连接的方式。更多关于Github token的信息可以去 https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line 内查看。
+  token: <your github auth token, optional>
+  
+  # asset_dirs是可选的需要上传至github静态资源仓库的目录列表，其中的每一个资源目录应该是相对于你的hexo项目目录的路径， 例如 assets 或者 source/assets 或者 themes/<theme name>/assets 。如果你只是想用CDN加速你的post中的图片，则可以不设置asset_dirs
   asset_dirs:
     - [存放静态资源的目录]
     - [另一个存放静态资源的目录]
@@ -113,6 +116,10 @@ jsdelivr_cdn:
 ```
 $ rm -rf .deploy_static_assets
 ```
+
+## 参考
+
+部分代码参考了 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)的实现
 
 ## License
 
