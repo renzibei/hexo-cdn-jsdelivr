@@ -104,10 +104,7 @@ jsdelivr_cdn:
 
 ## TODO List
 
-- [ ] 添加对通过Github token推送的支持
-
-- [ ] Add support for Github token
-- [ ] 
+- [x] 添加对通过Github token推送的支持
 
 - [ ] 考虑支持markdown风格的文件插入链接方法
 
