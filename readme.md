@@ -104,7 +104,7 @@ Except for the assets in the `_post` directory and the `asset_dirs` set in the O
 ## TODO List
 
 - [x] Add support for Github token
-- [ ] Add suport for markdown-style image inserting
+- [ ] Add support for markdown-style image inserting
 
 ## Reset
 
